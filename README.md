@@ -108,3 +108,4 @@ If you need to check if is valid json data, you can to use `checkValidJsonData()
 Licensed under the BSD License:
 
    http://opensource.org/licenses/bsd-license.php
+
