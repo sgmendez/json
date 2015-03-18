@@ -45,7 +45,7 @@ class Json
         $depthValid = $this->validateType('int', $depth, '$depth');
         
         $jsonData = json_encode($dataValid, $optionsValid, $depthValid);
-        $jsonError = $this->checkJsonError();
+        $this->checkJsonError();
         
         return $jsonData;
     }
@@ -68,7 +68,7 @@ class Json
         $optionsValid = $this->validateType('int', $options, '$options');
         
         $data = json_decode($dataValid, $assocValid, $depthValid, $optionsValid);
-        $jsonEror = $this->checkJsonError();
+        $this->checkJsonError();
         
         return $data;
     }
