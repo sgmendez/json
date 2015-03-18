@@ -1,17 +1,17 @@
 # Introduction
-==============
+--------------
 
 This PHP library create a wrapper for `json_encode` and `json_decode` PHP functions
 that normalize use across de PHP versions and throw exceptions when encoding or
 decoding fail.
 
 # Requirements
-==============
+--------------
 
 This library require PHP 5.3.3 or higher
 
 # Installation
-==============
+--------------
 
 You can use [Composer](https://getcomposer.org) to use this library in 
 your application.
@@ -37,7 +37,7 @@ You can run the PHPUnit tests, in directory test execute:
 In this directory there are a copy of phpunit.phar for execution test
 
 # Examples
-==========
+----------
 
 Encode JSON data:
 
@@ -74,7 +74,8 @@ try
 } 
 catch (Exception $ex) 
 {
-    echo '[EXCEPTION] MSG: '.$ex->getMessage().' | FILE: '.$ex->getFile().': '.$ex->getLine()."\n";
+    echo '[EXCEPTION] MSG: '.$ex->getMessage() .
+         ' | FILE: '.$ex->getFile().': '.$ex->getLine()."\n";
 }
 
 
@@ -94,15 +95,16 @@ try
 } 
 catch (Exception $ex) 
 {
-    echo '[EXCEPTION] MSG: '.$ex->getMessage().' | FILE: '.$ex->getFile().': '.$ex->getLine()."\n";
+    echo '[EXCEPTION] MSG: '.$ex->getMessage() .
+         ' | FILE: '.$ex->getFile().': '.$ex->getLine()."\n";
 }
 
 ```
-If you need to check if is valid json data, you can to use checkValidJsonData() method.
+If you need to check if is valid json data, you can to use `checkValidJsonData()` method.
 
 
 # License
-=========
+---------
 Licensed under the BSD License:
 
    http://opensource.org/licenses/bsd-license.php
