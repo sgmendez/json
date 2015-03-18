@@ -44,7 +44,7 @@ class Json
         $optionsValid = $this->validateType('int', $options, '$options');
         $depthValid = $this->validateType('int', $depth, '$depth');
         
-        $jsonData = @json_encode($dataValid, $optionsValid, $depthValid);
+        $jsonData = json_encode($dataValid, $optionsValid, $depthValid);
         $jsonError = $this->checkJsonError();
         
         return $jsonData;
@@ -67,7 +67,7 @@ class Json
         $depthValid = $this->validateType('int', $depth, '$depth');
         $optionsValid = $this->validateType('int', $options, '$options');
         
-        $data = @json_decode($dataValid, $assocValid, $depthValid, $optionsValid);
+        $data = json_decode($dataValid, $assocValid, $depthValid, $optionsValid);
         $jsonEror = $this->checkJsonError();
         
         return $data;
@@ -85,7 +85,23 @@ class Json
      */
     public function decodeFile($file, $assoc = true, $depth = 512, $options = 0)
     {
-        $jsonData = @file_get_contents($file);
+        set_error_handler(
+                create_function(
+                        '$severity, $message, $file, $line', 'throw new ErrorException($message, $severity, $severity, $file, $line);'
+                )
+        );
+        
+        try
+        {
+            $jsonData = file_get_contents($file);
+        }
+        catch (Exception $e)
+        {
+            throw new RuntimeException(sprintf($e->getMessage()));
+        }
+
+        restore_error_handler();
+        
         if(false === $jsonData)
         {
             throw new RuntimeException(sprintf('Unable to get file %s', $file));
