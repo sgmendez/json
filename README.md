@@ -29,7 +29,7 @@ $ composer require sgmendez/json
 ```
 
 # Tests
-=======
+-------
 You can run the PHPUnit tests, in directory test execute:
 
     $ php phpunit.phar .
