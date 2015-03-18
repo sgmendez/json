@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Sgmendez/Json : A PHP library for manipulate JSON data">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Sgmendez/Json</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/sgmendez/json">View on GitHub</a>
+
+          <h1 id="project_title">Sgmendez/Json</h1>
+          <h2 id="project_tagline">A PHP library for manipulate JSON data</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/sgmendez/json/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/sgmendez/json/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><a href="https://packagist.org/packages/sgmendez/json"><img src="https://poser.pugx.org/sgmendez/json/license.svg" alt="License"></a>
+<a href="https://insight.sensiolabs.com/projects/f3e4c839-49ea-4065-8370-0e98758a7062"><img src="https://insight.sensiolabs.com/projects/f3e4c839-49ea-4065-8370-0e98758a7062/mini.png" alt="SensioLabsInsight"></a>
+<a href="https://packagist.org/packages/sgmendez/json"><img src="https://poser.pugx.org/sgmendez/json/v/stable.svg" alt="Latest Stable Version"></a> 
+<a href="https://packagist.org/packages/sgmendez/json"><img src="https://poser.pugx.org/sgmendez/json/downloads.svg" alt="Total Downloads"></a> 
+<a href="https://packagist.org/packages/sgmendez/json"><img src="https://poser.pugx.org/sgmendez/json/v/unstable.svg" alt="Latest Unstable Version"></a> </p>
+
+<h1>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<hr>
+
+<p>This PHP library create a wrapper for <code>json_encode</code> and <code>json_decode</code> PHP functions
+that normalize use across de PHP versions and throw exceptions when encoding or
+decoding fail.</p>
+
+<h1>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h1>
+
+<hr>
+
+<p>This library require PHP 5.3.3 or higher</p>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<hr>
+
+<p>You can use <a href="https://getcomposer.org">Composer</a> to use this library in 
+your application.</p>
+
+<p>If you don't have Composer yet, download it following the instructions on
+<a href="http://getcomposer.org/">http://getcomposer.org/</a> or just run the following command:</p>
+
+<pre><code>curl -s http://getcomposer.org/installer | php
+</code></pre>
+
+<p>And then execute this command to add libary to your project:</p>
+
+<pre><code>$ composer require sgmendez/json
+</code></pre>
+
+<h1>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h1>
+
+<hr>
+
+<p>You can run the PHPUnit tests, in directory test execute:</p>
+
+<pre><code>$ php phpunit.phar .
+</code></pre>
+
+<p>In this directory there are a copy of phpunit.phar for execution test</p>
+
+<h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<hr>
+
+<p>Encode JSON data:</p>
+
+<pre><code>php
+use Sgmendez\Json\Json;
+
+$json = new Json();
+
+try
+{
+    $arrayData = array('foo' =&gt; 'Foo', 'bar' =&gt; 'Bar');
+    $jsonData = $json-&gt;encode($arrayData);
+} 
+catch (Exception $ex) 
+{
+    echo '[EXCEPTION] MSG: '.$ex-&gt;getMessage().' | FILE: '.$ex-&gt;getFile().': '.$ex-&gt;getLine()."\n";
+}
+
+</code></pre>
+
+<p>Decode JSON string (by default, return array data):</p>
+
+<pre><code>php
+use Sgmendez\Json\Json;
+
+$json = new Json();
+
+try
+{
+    $jsonData = '{"foo":"Foo","bar":"Bar"}';
+    $dataArray = $json-&gt;decode($jsonData);
+} 
+catch (Exception $ex) 
+{
+    echo '[EXCEPTION] MSG: '.$ex-&gt;getMessage() .
+         ' | FILE: '.$ex-&gt;getFile().': '.$ex-&gt;getLine()."\n";
+}
+
+
+</code></pre>
+
+<p>Decode JSON file (by default, return array data):</p>
+
+<pre><code>php
+use Sgmendez\Json\Json;
+
+$json = new Json();
+
+try
+{
+    $dataArray = $json-&gt;decodeFile('/path/to/file.json');
+} 
+catch (Exception $ex) 
+{
+    echo '[EXCEPTION] MSG: '.$ex-&gt;getMessage() .
+         ' | FILE: '.$ex-&gt;getFile().': '.$ex-&gt;getLine()."\n";
+}
+
+</code></pre>
+
+<p>If you need to check if is valid json data, you can to use <code>checkValidJsonData()</code> method.</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<hr>
+
+<p>Licensed under the BSD License:</p>
+
+<p><a href="http://opensource.org/licenses/bsd-license.php">http://opensource.org/licenses/bsd-license.php</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sgmendez/Json maintained by <a href="https://github.com/sgmendez">sgmendez</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
