@@ -33,6 +33,18 @@ And then execute this command to add libary to your project:
 ```
 $ composer require sgmendez/json
 ```
+Or require [`sgmendez/json`](http://sgmendez.github.io/json/)
+into your `composer.json` file:
+
+
+``` 
+json
+{
+    "require": {
+        "sgmendez/json": "1.0.*"
+    }
+}
+```
 
 # Tests
 -------

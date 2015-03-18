@@ -2,7 +2,7 @@
     "name": "sgmendez/json",
     "description": "A PHP library for manipulate JSON data",
     "keywords": ["json", "encode", "decode"],
-    "homepage": "https://github.com/sgmendez/json",
+    "homepage": "http://sgmendez.github.io/json/",
     "type": "library",
     "license": "BSD-2-Clause",
     "authors": [
