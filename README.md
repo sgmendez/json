@@ -1,3 +1,9 @@
+[![License](https://poser.pugx.org/sgmendez/json/license.svg)](https://packagist.org/packages/sgmendez/json)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/f3e4c839-49ea-4065-8370-0e98758a7062/mini.png)](https://insight.sensiolabs.com/projects/f3e4c839-49ea-4065-8370-0e98758a7062)
+[![Latest Stable Version](https://poser.pugx.org/sgmendez/json/v/stable.svg)](https://packagist.org/packages/sgmendez/json) 
+[![Total Downloads](https://poser.pugx.org/sgmendez/json/downloads.svg)](https://packagist.org/packages/sgmendez/json) 
+[![Latest Unstable Version](https://poser.pugx.org/sgmendez/json/v/unstable.svg)](https://packagist.org/packages/sgmendez/json) 
+
 # Introduction
 --------------
 
