@@ -19,10 +19,11 @@
 
 namespace Sgmendez\Json\Tests;
 
+require_once __DIR__ . '/../src/Json.php';
+
 use Sgmendez\Json\Json;
 use InvalidArgumentException;
 use RuntimeException;
-use UnexpectedValueException;
 use LengthException;
 use Exception;
 
