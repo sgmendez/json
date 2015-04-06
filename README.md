@@ -41,7 +41,7 @@ into your `composer.json` file:
 json
 {
     "require": {
-        "sgmendez/json": "1.0.*"
+        "sgmendez/json": "*"
     }
 }
 ```
