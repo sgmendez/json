@@ -66,8 +66,8 @@ class Json
         $assocValid = $this->validateType('boolean', $assoc, '$assoc');
         $depthValid = $this->validateType('int', $depth, '$depth');
         $optionsValid = $this->validateType('int', $options, '$options');
-        
-        $data = json_decode($dataValid, $assocValid, $depthValid, $optionsValid);
+
+        $data = $this->decodeCheckVersion($dataValid, $assocValid, $depthValid, $optionsValid);
         $this->checkJsonError();
         
         return $data;
@@ -300,5 +300,25 @@ class Json
         }
         
         return $codeException;
+    }
+
+    /**
+     * Options param add 5.4
+     *
+     * @param $dataValid
+     * @param $assocValid
+     * @param $depthValid
+     * @param $optionsValid
+     * @return mixed
+     */
+    private function decodeCheckVersion($dataValid, $assocValid, $depthValid, $optionsValid)
+    {
+        //In 5.4 add options param
+        if(version_compare(PHP_VERSION, '5.4.0') >= 0)
+        {
+            return json_decode($dataValid, $assocValid, $depthValid, $optionsValid);
+        }
+
+        return json_decode($dataValid, $assocValid, $depthValid);
     }
 }
