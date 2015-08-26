@@ -43,8 +43,8 @@ class Json
         $dataValid = $this->validateType('not_resource', $data);
         $optionsValid = $this->validateType('int', $options, '$options');
         $depthValid = $this->validateType('int', $depth, '$depth');
-        
-        $jsonData = json_encode($dataValid, $optionsValid, $depthValid);
+
+        $jsonData = $this->encodeCheckVersion($dataValid, $optionsValid, $depthValid);
         $this->checkJsonError();
         
         return $jsonData;
@@ -320,5 +320,24 @@ class Json
         }
 
         return json_decode($dataValid, $assocValid, $depthValid);
+    }
+
+    /**
+     * Depth param add 5.4
+     *
+     * @param $dataValid
+     * @param $optionsValid
+     * @param $depthValid
+     * @return string
+     */
+    private function encodeCheckVersion($dataValid, $optionsValid, $depthValid)
+    {
+        //In 5.4 add depth param
+        if(version_compare(PHP_VERSION, '5.4.0') >= 0)
+        {
+            return json_encode($dataValid, $optionsValid, $depthValid);
+        }
+
+        return json_encode($dataValid, $optionsValid);
     }
 }
